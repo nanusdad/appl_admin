@@ -17,3 +17,7 @@ Template.main.admin = function() {
    // Meteor.call( isAdmin )
    return true;
 };
+
+Template.surveys.surveys = function() {
+	return Surveys.find({});
+}
