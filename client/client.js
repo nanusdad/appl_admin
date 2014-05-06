@@ -15,7 +15,8 @@ Template.main.email_verified = function() {
 
 Template.main.admin = function() {
    // Meteor.call( isAdmin )
-   return true;
+   console.log(Meteor.user().profile.administrator);
+   return Meteor.user().profile.administrator;
 };
 
 Template.surveys.surveys = function() {
