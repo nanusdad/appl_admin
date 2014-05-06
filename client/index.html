@@ -1,0 +1,60 @@
+<body>
+	<div class="container">
+		{{> header}}
+		<div>
+			{{#if currentUser}}
+				{{> main}}
+			{{else}}
+				{{> landing_page}}
+			{{/if}}
+		</div>
+	</div>
+
+	{{> footer}}
+</body>
+
+<template name="header">
+	<div class="page-header">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="logo.jpg" width="150" align="center" />
+			</div>
+			<div class="col-md-9 text-center">
+				<table class="table" style="">
+					<tr style="padding-bottom: 2px;"><td style="padding-top: 1px; padding-bottom: 1px; font-size:25px; color:navy; font-family:times; font-weight:bold; border-top-color:transparent">CHRISTIAN MEDICAL COLLEGE</td></tr>
+					<tr style="b"><td style="font-size:25px; color:navy; font-family:times; font-weight:bold; border-top-color:transparent">VELLORE - 632 004, TAMIL NADU, INDIA</td></tr>
+					<tr><td style="font-size:25px;font-family:times; font-weight:bold; border-top-color:transparent">DEPARTMENT OF DISTANCE EDUCATION</td></td>
+				</table>
+			</div>
+		</div>
+
+		<ul class="nav navbar-nav navbar-right">
+		 	{{ loginButtons }}
+		</ul>
+	</div>
+</template>
+
+<template name="footer">
+	<div id="footer">
+		<div class="container">
+	  		<p class="text-muted">
+	     		<small>&copy Designed by <a href="mailto:az@gozeteo.com">Zeteo</a></small>
+	    	</p>
+	  	</div>
+  	</div>
+</template>
+
+
+<template name="main">
+
+	{{#if email_verified}}
+		{{> appl_submit_details}}
+
+		{{> survey_tabs}}
+
+	{{else}}
+	Verified : {{email_verified}}
+	<p class="lead">Please check your email and verify your identity. Thanks.</p>
+	{{/if}}
+
+</template>
