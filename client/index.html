@@ -28,7 +28,7 @@
 		</div>
 
 		<ul class="nav navbar-nav navbar-right">
-		 	{{ loginButtons }}
+		 	{{> loginButtons }}
 		</ul>
 	</div>
 </template>
@@ -47,9 +47,28 @@
 <template name="main">
 
 	{{#if email_verified}}
-		{{> appl_submit_details}}
+		{{#if admin}}
+		<ul id="detail_tabs" class="nav nav-tabs">
+ 			 <li class="active"><a href="#home_tab" data-toggle="tab">Home</a></li>
+  			<li><a href="#surveys_tab" data-toggle="tab">Surveys</a></li>
+  			<li><a href="#answers_tab" data-toggle="tab">Answers</a></li>
+		</ul>
 
-		{{> survey_tabs}}
+		<div id="detail_tabs" class="tab-content">
+			<div class="tab-pane fade" id="home_tab">
+				<h4> Home </h4>
+			</div>
+			<div class="tab-pane fade" id="surveys_tab">
+				<h4> Surveys </h4>
+			</div>
+			<div class="tab-pane fade" id="answers_tab">
+				<h4> Answer </h4>
+			</div>
+		</div>	
+
+		{{else}}
+			Sorry !! You need administrator access.
+		{{/if}}
 
 	{{else}}
 	Verified : {{email_verified}}
@@ -65,7 +84,6 @@
 	<p>
 		You need an admin account. Please Sign In to continue to fill the details. 
 	</p>
-	<p>  
 	<p style="color:red">
 
 	If you are not admin, please do not attemp to login.	

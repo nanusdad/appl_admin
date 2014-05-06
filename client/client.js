@@ -12,3 +12,8 @@ Template.main.email_verified = function() {
 		}
 	}).emails[0].verified;
 };
+
+Template.main.admin = function() {
+   // Meteor.call( isAdmin )
+   return true;
+};
