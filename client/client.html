@@ -93,8 +93,8 @@
 
 <template name="surveys">
 	<div class="panel-group" id="survey_panels">
-		<div class="panel panel-default">
-			{{#each surveys}}
+		{{#each surveys}}
+			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h4 class="panel-title">
 					<a data-toggle="collapse" data-parent="#survey_panels" href="{{survey_id}}">
@@ -102,8 +102,6 @@
 					</a>
 					</h4>
 				</div>
-			{{/each}}
-			{{#each surveys}}
 				<div id="{{survey_id}}" class="panel-collapse collapse">
 					<div class="panel-body">
 						{{#each sections}}
@@ -112,7 +110,7 @@
 						{{/each}}
 					</div>
 				</div>
-			{{/each}}
-		</div>
+			</div>
+		{{/each}}
 	</div>
 </template>
