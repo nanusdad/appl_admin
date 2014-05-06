@@ -21,4 +21,12 @@ Template.main.admin = function() {
 
 Template.surveys.surveys = function() {
 	return Surveys.find({});
-}
+};
+
+Template.main.rendered = function() {
+	console.log('rendering');
+$('#texter_Instructions').editable({
+  success: function(response, newValue) {
+    console.log(newValue);
+}});	
+};
