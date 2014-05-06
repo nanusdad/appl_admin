@@ -1,0 +1,118 @@
+<body>
+	<div class="container">
+		{{> header}}
+		<div>
+			{{#if currentUser}}
+				{{> main}}
+			{{else}}
+				{{> landing_page}}
+			{{/if}}
+		</div>
+	</div>
+
+	{{> footer}}
+</body>
+
+<template name="header">
+	<div class="page-header">
+		<div class="row">
+			<div class="col-md-3">
+			</div>
+			<div class="col-md-9 text-center">
+				<table class="table" style="">
+					<tr style="padding-bottom: 2px;"><td style="padding-top: 1px; padding-bottom: 1px; font-size:25px; color:navy; font-family:times; font-weight:bold; border-top-color:transparent">CHRISTIAN MEDICAL COLLEGE</td></tr>
+					<tr style="b"><td style="font-size:25px; color:navy; font-family:times; font-weight:bold; border-top-color:transparent">VELLORE - 632 004, TAMIL NADU, INDIA</td></tr>
+					<tr><td style="font-size:25px;font-family:times; font-weight:bold; border-top-color:transparent">DEPARTMENT OF DISTANCE EDUCATION</td></tr>
+				</table>
+			</div>
+		</div>
+
+		<ul class="nav navbar-nav navbar-right">
+		 	{{> loginButtons }}
+		</ul>
+	</div>
+</template>
+
+<template name="footer">
+	<div id="footer">
+		<div class="container">
+	  		<p class="text-muted">
+	     		<small>&copy; Designed by <a href="mailto:az@gozeteo.com">Zeteo</a></small>
+	    	</p>
+	  	</div>
+  	</div>
+</template>
+
+
+<template name="main">
+
+	{{#if email_verified}}
+		{{#if admin}}
+		<ul id="detail_tabs" class="nav nav-tabs">
+ 			 <li class="active"><a href="#home_tab" data-toggle="tab">Home</a></li>
+  			<li><a href="#surveys_tab" data-toggle="tab">Surveys</a></li>
+  			<li><a href="#answers_tab" data-toggle="tab">Answers</a></li>
+		</ul>
+
+		<div id="detail_tabs" class="tab-content">
+			<div class="tab-pane fade" id="home_tab">
+				<h4> Home </h4>
+			</div>
+			<div class="tab-pane fade" id="surveys_tab">
+				<h4> Surveys </h4>
+				{{> surveys}}
+			</div>
+			<div class="tab-pane fade" id="answers_tab">
+				<h4> Answers </h4>
+			</div>
+		</div>	
+
+		{{else}}
+			Sorry !! You need administrator access.
+		{{/if}}
+
+	{{else}}
+	Verified : {{email_verified}}
+	<p class="lead">Please check your email and verify your identity. Thanks.</p>
+	{{/if}}
+
+</template>
+
+<template name="landing_page">
+	<p class="text-center">
+		Welcome to Application Form Admin Page 2014!
+	</p>
+	<p>
+		You need an admin account. Please Sign In to continue to fill the details. 
+	</p>
+	<p style="color:red">
+
+	If you are not admin, please do not attemp to login.	
+	</p>
+</template>
+
+<template name="surveys">
+	<div class="panel-group" id="survey_panels">
+		<div class="panel panel-default">
+			{{#each surveys}}
+				<div class="panel-heading">
+					<h4 class="panel-title">
+					<a data-toggle="collapse" data-parent="#survey_panels" href="{{survey_id}}">
+						{{survey_name}}
+					</a>
+					</h4>
+				</div>
+			{{/each}}
+			{{#each surveys}}
+				<div id="{{survey_id}}" class="panel-collapse collapse">
+					<div class="panel-body">
+						{{#each sections}}
+							Section Name: {{section_name}}
+							<br />
+						{{/each}}
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	</div>
+</template>
