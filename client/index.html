@@ -92,9 +92,10 @@
 </template>
 
 <template name="surveys">
-	{{each surveys}}
+	{{#each surveys}}
 		Survey Name: {{survey_name}}
-		{{each sections}}
+		{{#each sections}}
 			Section Name: {{section_name}}
+		{{/each}}
 	{{/each}}
 </template>
