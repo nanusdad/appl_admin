@@ -2,6 +2,6 @@
   "packages": {
     "bootstrap-3": {},
     "accounts-ui-bootstrap-3": {},
-    "x-editable-bootstrap3": {}
+    "meteor-editable": {}
   }
 }

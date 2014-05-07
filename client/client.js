@@ -23,19 +23,15 @@ Template.surveys.surveys = function() {
 	return Surveys.find({});
 };
 
-Template.main.rendered = function() {
-	console.log('rendering');
-	make_editable();
-};
-
-var make_editable = function() {
-	console.log('in make_editable');
-	texter('Instructions');
+Template.surveys.rendered = function () {
+	$('#texter_Instructions').on('blaze-update', function (e) {
+		texter();
+	});
 }
 
-var texter = function(section_id) {
+var texter = function() {
 	console.log('in texter');
-	$('#texter_' + section_id').editable({
+	$('#texter_Instructions').editable({
 		success: function(response, newValue) {
 			console.log(newValue);
 		}

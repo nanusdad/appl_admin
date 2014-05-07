@@ -105,8 +105,8 @@
 				<div id="{{survey_id}}" class="panel-collapse collapse">
 					<div class="panel-body">
 						{{#each sections}}
-							Section Name: {{section_name}}
-							<p id="texter_{{section_id}}" class="editable" data-type="text">{{section_name}}</p>	
+							Section Name: 
+							{{> m_editable position="top" type="text" value=section_name }}
 							<br />
 						{{/each}}
 					</div>
