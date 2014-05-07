@@ -8,3 +8,6 @@ Meteor.publish('answers', function() {
 Meteor.publish('surveys', function() {
 	return Surveys.find({});
 });
+
+//Metor.methods
+//Surveys.update({ "sections.questions.question_id": 'S1C1I2' }, { $set : { "sections.questions.$.question_text": "Instructions: This form is a continuation of the application from the previous application page." } })

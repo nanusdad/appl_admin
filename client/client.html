@@ -87,7 +87,7 @@
 	</p>
 	<p style="color:red">
 
-	If you are not admin, please do not attemp to login.	
+	If you are not admin, please do not attempt to login.	
 	</p>
 </template>
 
@@ -106,8 +106,14 @@
 					<div class="panel-body">
 						{{#each sections}}
 							Section Name: 
-							{{> m_editable position="top" type="text" value=section_name }}
+							{{> m_editable options section_name}}
 							<br />
+							{{#each questions}}
+								<p>{{question_id}}</p>
+								<p>{{question_type}}</p>
+								<p>{{question_col_size}}</p>
+								<p>{{> m_editable options question_text question_type}}</p>
+							{{/each}}
 						{{/each}}
 					</div>
 				</div>

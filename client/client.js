@@ -23,17 +23,31 @@ Template.surveys.surveys = function() {
 	return Surveys.find({});
 };
 
-Template.surveys.rendered = function () {
-	$('#texter_Instructions').on('blaze-update', function (e) {
-		texter();
-	});
+Template.surveys.texter = function() {
+	console.log('in texter');
+
 }
 
-var texter = function() {
-	console.log('in texter');
-	$('#texter_Instructions').editable({
-		success: function(response, newValue) {
-			console.log(newValue);
+Template.surveys.helpers({
+	foo: function() {
+		// ...
+	},
+	options: function(section_name, question_type) {
+		if (question_type === 'para') {
+			question_type = 'textarea';
 		}
-	});
-};
+		return {
+			type: question_type,
+			async: true,
+			position: 'top',
+			value: section_name,
+			onsubmit: function(val, cb) {
+				setTimeout(function() {
+					Session.set('text', val);
+					cb();
+					console.log(val);
+				}, 1000);
+			}
+		};
+	}
+});
