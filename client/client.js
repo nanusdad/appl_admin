@@ -14,9 +14,9 @@ Template.main.email_verified = function() {
 };
 
 Template.main.admin = function() {
-   // Meteor.call( isAdmin )
-   console.log(Meteor.user().profile.administrator);
-   return Meteor.user().profile.administrator;
+	// Meteor.call( isAdmin )
+	console.log(Meteor.user().profile.administrator);
+	return Meteor.user().profile.administrator;
 };
 
 Template.surveys.surveys = function() {
@@ -25,8 +25,13 @@ Template.surveys.surveys = function() {
 
 Template.main.rendered = function() {
 	console.log('rendering');
-$('#texter_Instructions').editable({
-  success: function(response, newValue) {
-    console.log(newValue);
-}});	
+	texter();
+};
+
+var texter = function() {
+	$('#texter_Instructions').editable({
+		success: function(response, newValue) {
+			console.log(newValue);
+		}
+	});
 };
