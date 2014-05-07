@@ -25,11 +25,17 @@ Template.surveys.surveys = function() {
 
 Template.main.rendered = function() {
 	console.log('rendering');
-	texter();
+	make_editable();
 };
 
-var texter = function() {
-	$('#texter_Instructions').editable({
+var make_editable = function() {
+	console.log('in make_editable');
+	texter('Instructions');
+}
+
+var texter = function(section_id) {
+	console.log('in texter');
+	$('#texter_' + section_id').editable({
 		success: function(response, newValue) {
 			console.log(newValue);
 		}
